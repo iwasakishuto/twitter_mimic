@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "18929316679",
+    "project_id": "twitter-mimic",
+    "storage_bucket": "twitter-mimic.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:18929316679:android:7aea5b7b7e27ad6fc8d262",
+        "android_client_info": {
+          "package_name": "iwasakishuto.github.io.twitter_mimic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "18929316679-lm3jcdom3tu22nb9h7endur6ank6noi4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLu1-86-yf1it1h75bfy2DJyG6-H8XsSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "18929316679-lm3jcdom3tu22nb9h7endur6ank6noi4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
