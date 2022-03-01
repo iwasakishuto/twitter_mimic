@@ -1,9 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:twitter_mimic/utils/firestore/users.dart';
 import 'package:twitter_mimic/view/screen.dart';
 import 'package:twitter_mimic/view/start_up/create_account_page.dart';
 
 import '../../utils/authentication.dart';
+import '../../utils/widget_utils.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -19,6 +22,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: WidgetUtils.createAppBar('新規登録'),
       body: SafeArea(
         child: Container(
           width: double.infinity,
@@ -67,11 +71,15 @@ class _LoginPageState extends State<LoginPage> {
               ElevatedButton(
                 onPressed: () async {
                   var result = await Authentication.emailSignIn(email: emailControlier.text, pass: passController.text);
-                  if (result == true){
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Screen()));
+                  if (result is UserCredential){
+                    var _result = await UserFirestore.getUser(result.user!.uid);
+                    if (_result == true){
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Screen()));
+                    }
+
                   }
                 },
                 child: Text('emailでログイン'),
